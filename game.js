@@ -17,6 +17,8 @@ var runSomeTests = function(){
 	var listOfItems = document.querySelector('#inventory > ul');
 	var listOfHelp = document.querySelector('#help > ul');
 
+	var listAside = document.querySelector("Aside");
+
 
 };
 
