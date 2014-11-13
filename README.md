@@ -17,13 +17,13 @@ Characters:
 - Robo'reilly (end boss)
 
 Settings:
--dark room
--frat house
--taxi
--river
--groundhog hole
--dining hall
--football field
--O'Reilly's Liar
+- dark room
+- frat house
+- taxi
+- river
+- groundhog hole
+- dining hall
+- football field
+- O'Reilly's Liar
 
 Endgame: The game ends when the player defeats Robo'reilly and becomes the most powerful being at Marist.
