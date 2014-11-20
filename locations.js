@@ -23,19 +23,40 @@ var connectionList = [
      [0,1,0]
 ];
 
+//map object that stores the arrays
 var map = {
 	locations : locationList,
 	connections : connectionList
 };
 
+//tests the adjacency function
 var test = function(){
 	var row = map.connections[0];
 	for(i in map.connections){
 		var value = row[i];
 		if(value == 1)
-			return map.locations[i];
+			console.log(map.locations[i].name);
 	}
 
 }
 
-console.log(test());
+//adds locations to the location matrix
+map.locations = [
+	//placeholder
+	new location("name", "descrip")
+];
+
+/*
+function connect(matrix, i, j){
+	matrix[i][j] = 1;
+	matrix[j][i] = 1;
+}
+
+function disconnect(matrix, i, j){
+	matrix[i][j] = 0;
+	matrix[j][i] = 0;
+}
+*/
+
+//runs the test function
+test();
