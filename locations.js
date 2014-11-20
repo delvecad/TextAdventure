@@ -40,13 +40,13 @@ var test = function(){
 
 }
 
+/*
 //adds locations to the location matrix
 map.locations = [
 	//placeholder
 	new location("name", "descrip")
 ];
 
-/*
 function connect(matrix, i, j){
 	matrix[i][j] = 1;
 	matrix[j][i] = 1;
