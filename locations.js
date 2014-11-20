@@ -28,3 +28,10 @@ var map = {
 	connections : connectionList
 };
 
+var test = function(){
+	for(i=0, i<map.locations.lenth, i++){
+		if(locations[map.connections[0]] == 1)
+			return map[i,1];
+	}
+
+}
