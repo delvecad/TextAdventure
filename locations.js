@@ -29,9 +29,13 @@ var map = {
 };
 
 var test = function(){
-	for(i=0, i<map.locations.lenth, i++){
-		if(locations[map.connections[0]] == 1)
-			return map[i,1];
+	var row = map.connections[0];
+	for(i in map.connections){
+		var value = row[i];
+		if(value == 1)
+			return map.locations[i];
 	}
 
 }
+
+console.log(test());
