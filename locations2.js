@@ -27,7 +27,7 @@ map.locations = [
 	new location("Groundhog HQ", "full of groundhogs");
 	new location("River", "smelly");
 	new location("Football Field", "bright");
-	new location("President's Office", "presidential")'
+	new location("President's Office", "presidential");
 	new location("O'Reilly's Airship", "menacing");
 	
 ];
