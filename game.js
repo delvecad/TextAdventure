@@ -29,8 +29,7 @@ var interpret = function(str){
 function execute(command){
 	var action = command.action;
 	var target = command.target;
-	var func = player[action];
-	var func(target);
+	player[action](target);
 };
 
 function report(result){
@@ -40,8 +39,10 @@ function report(result){
 	return content;
 };
 
-function gameStep(){
-	
+function gameStep(str){
+	var cmd = interpret(str);
+	execute(cmd);
+	report(cmd.object);
 };
 
 

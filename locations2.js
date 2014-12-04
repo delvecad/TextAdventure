@@ -1,9 +1,9 @@
 var locationList = [];
 
 var connectionList = [
-    	[0,0,0,0,0,0,0,0],
-    	[0,0,0,0,0,0,0,0],
-     	[0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0],
@@ -20,16 +20,15 @@ function location(name, description){
 }
 
 //adds locations to the location matrix
-map.locations = [
-	new location("dark room", "dark");
-	new location("Frat House", "still dark");
-	new location("Groundhog Hole", "even darker");
-	new location("Groundhog HQ", "full of groundhogs");
-	new location("River", "smelly");
-	new location("Football Field", "bright");
-	new location("President's Office", "presidential");
-	new location("O'Reilly's Airship", "menacing");
-	
+locationList = [
+	new location("Dark Room", "dark"),
+	new location("Frat House", "still dark"),
+	new location("Groundhog Hole", "even darker"),
+	new location("Groundhog HQ", "full of groundhogs"),
+	new location("River", "smelly"),
+	new location("Football Field", "bright"),
+	new location("President's Office", "presidential"),
+	new location("O'Reilly's Airship", "spooky")	
 ];
 
 //map object that stores the arrays
@@ -37,16 +36,21 @@ var map = {
 	locations : locationList,
 	connections : connectionList,
 	connect: function(from, to){
-		var i = this.locations.indexOf(loc1);
-		var j = this.locations.indexOf(loc2);
+		var i = this.locations.indexOf(from);
+		var j = this.locations.indexOf(to);
 		this.connections[i][j] = 1;
 		this.connections[j][i] = 1;
 	}
 };
 
 //connects locations
-map.connect("darkRoom", "fratHouse");
-map.connect("fratHouse", "groundhogHole");
+map.connect("Dark Room", "Frat House");
+map.connect("Frat House", "Groundhog Hole");
+map.connect("Groundhog Hole", "Groundhog HQ");
+map.connect("Groundhog HQ", "River");
+map.connect("River", "Football Field");
+map.connect("Football Field", "President's Office");
+map.connect("President's Office", "O'Reilly's Airship");
 
 
 //tests the adjacency function
