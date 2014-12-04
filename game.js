@@ -5,7 +5,7 @@ player.pickup = function(itemName){
 	return items;
 };
 	
-player.drop : function(itemName){
+player.drop = function(itemName){
 	for(i in itemName){
 		if(player.items[i] === itemName){
 			player.items.splice(i, 1);				
@@ -16,13 +16,12 @@ return items
 
 
 var interpret = function(str){
-	var emptyObject = {action,object};
-	
+	var emptyObject = {};
 	var trimStr = str.trim();
 	var splitStr = trimStr.split(" ");
 	emptyObject.action = splitStr.shift();
 	emptyObject.object = splitStr.join();
-			
+	return emptyObject;		
 };
 
 
@@ -34,7 +33,7 @@ function execute(command){
 
 function report(result){
 	for(i in player.items){
-		var content = document.querySelectorAll(#inventory > ul);
+		var content = document.querySelectorAll("#inventory" > ul);
 	}
 	return content;
 };
