@@ -14,15 +14,12 @@ player.drop = function(itemName){
 return items
 };
 
-
-var interpret = function(str){
-	var emptyObject = {};
-	var trimStr = str.trim();
-	var splitStr = trimStr.split(" ");
-	emptyObject.action = splitStr.shift();
-	emptyObject.object = splitStr.join();
-	return emptyObject;		
-};
+function interpret(input) {
+    var cmd = {}, tokens = input.trim().toLowerCase().split(" ");
+    cmd.action = tokens.shift();
+    cmd.target = tokens.join(" ");
+    return cmd;
+}
 
 
 function execute(command){
@@ -38,11 +35,27 @@ function report(result){
 	return content;
 };
 
-function gameStep(str){
-	var cmd = interpret(str);
-	execute(cmd);
-	report(cmd.object);
+function gameStep(input){
+	var cmd = interpret(input); //parses user input
+	var result = execute(cmd); //runs the desired command
+	report(result); //displays the results on the screen
 };
+
+function customizePlayer(input){
+	var cmd = interpret(input);
+	//********COME BACK TO THIS TO FLESH IT OUT*********
+}
+
+function displayInventory() {
+    var i, item, inventory;
+    inventory = document.querySelector("#inventory > ul");
+    clearContent(inventory);
+    for (i in player.items) {
+        item = document.createElement ("li");
+        item.textContent = player.items[i];
+        inventory.appendChild(item);
+    }
+}
 
 
 var gameStart = function(){
