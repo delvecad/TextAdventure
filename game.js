@@ -1,18 +1,34 @@
-var player = {items : []}
-	
-player.pickup = function(itemName){
-	player.items.push(itemName);
-	return items;
-};
-	
-player.drop = function(itemName){
-	for(i in itemName){
-		if(player.items[i] === itemName){
-			player.items.splice(i, 1);				
+var player = {
+	items : [],
+	currentLocation : "",
+
+
+	pickup : function(itemName){
+		player.items.push(itemName),
+		return player.items
+	},
+
+	drop : function(itemName){
+		for(i in items){
+			if(items[i] === itemName)
+				items.splce(i,1);
+		}
+		return player.items;
+	}
+
+	//ASK KAI
+	go : function(location){
+		for(i in locationList){
+			if(locationList[i] === location){
+				if()
+			}
 		}
 	}
-return items
-};
+
+	
+
+
+}
 
 function interpret(input) {
     var cmd = {}, tokens = input.trim().toLowerCase().split(" ");
