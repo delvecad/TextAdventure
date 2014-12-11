@@ -1,4 +1,4 @@
-unction Item(name, numUses, power) {
+function Item(name, numUses, power) {
     this.name = name;
     this.uses = numUses;
     this.power = power;
