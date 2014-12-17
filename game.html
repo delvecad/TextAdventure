@@ -17,9 +17,9 @@
     <main id="game">
     
         <output id="scene">
-            <p id="descrip">
-                You awaken to find yourself lying on the cold, marble floor of an impressive cathedral. Everything is silent, and you appear to be alone.
-            </p>
+            <textarea id="descrip" rows="6" cols="35" style="text-align:center; font-size:100%; font-family: cursive" readonly>
+                You awaken to find yourself lying on the floor of a dark room. There is a crowbar lying next to you.
+            </textarea>
             <label for="action"> What will you do? </label>
         </output>
 
@@ -36,8 +36,10 @@
     </aside>
 
     <aside id="help">
-        <h1> Available Actions </h1>
+        <h1> Actions </h1>
         <ul>
+        	<li id="pickup">pickup</li>
+        	<li id="drop">drop</li>
         </ul>
     </aside>
 
