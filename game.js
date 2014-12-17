@@ -5,12 +5,13 @@ var player = {
 
 
 	pickup : function(itemName){
-		player.items.push(itemName),
-		list = document.querySelector("#inventoryList"),
-		node = document.createElement("li"),
-		textNode = document.createElement(itemName),
-		node.appendChild(textNode),
-		list.appendChild(node)	
+		player.items.push(itemName);
+		list = document.querySelector("#inventoryList");
+		node = document.createElement("li");
+		textNode = document.createElement(itemName);
+		textNode.innerHTML = itemName;
+		node.appendChild(textNode);
+		list.appendChild(node);
 	},
 
 	drop : function(itemName){
@@ -31,57 +32,52 @@ var player = {
 	}*/
 }
 
-var interpret = function(input) {
-    var cmd = {};
-    var tokens = input.trim().toLowerCase().split(" ");
-    cmd.action = tokens.shift();
-    cmd.target = tokens.join(" ");
-    return cmd;
-}
+//parse commands	
+var interpret = function(str) {
+	var emptyObj ={};
+	var trimStr = str.trim();
+	var splitStr = trimStr.split(" ");
+	var firstElem = splitStr.shift();
+	emptyObj.action = firstElem;
+	var remainingElem = splitStr.join(" ");
+	emptyObj.object = remainingElem;
+	return emptyObj;
+};
 
-
-function execute(command){
+var execute = function (command) {
 	var action = command.action;
-	var target = command.target;
-	player[action](target);
+	var object = command.object;
+	player[action](object);
 };
 
-function report(result){
-	for(i in player.items){
-		var content = document.querySelectorAll("#inventory" > ul);
-	}
-	return content;
+var gameStep = function(str) {
+	var cmd = interpret(str);
+	execute(cmd);		
 };
 
-function gameStep(input){
-	var cmd = interpret(input); //parses user input
-	var result = execute(cmd); //runs the desired command
-	report(result); //displays the results on the screen
-};
+// game initialization - this also sets up input box
+var gameStart = function() {
 
-function customizePlayer(input){
-	var cmd = interpret(input);
-	//********COME BACK TO THIS TO FLESH IT OUT*********
-}
-
-function displayInventory() {
-    var i, item, inventory;
-    inventory = document.querySelector("#inventory > ul");
-    clearContent(inventory);
-    for (i in player.items) {
-        item = document.createElement ("li");
-        item.textContent = player.items[i];
-        inventory.appendChild(item);
-    }
-}
-
-
-	var gameStart = function(){
 	var inputBox = document.querySelector("input");
-	inputBox.addEventListener("keyup", gameStep);
-		if(event.keyCode === 13){
-			gameStep();
-	};	
-}
+	inputBox.addEventListener("keyup", function(event){
+		if(event.keyCode === 13) {
+			gameStep(this.value);
+			inputBox.value="";
+			//updates
+			//
+			//player.inventory(); 
+			//player.avaliableActions(player.currentLocation); 
+			//playerLocation(player.currentLocation.name);
+		}	
+	});	
+};
+
+var gameVictory = function(){
+	//alert player, stop default action
+};
+
+var gameDefeat = function(){
+	//alert player, reset game
+};
 
 window.onload = gameStart;
