@@ -11,16 +11,18 @@ var player = {
 		textNode = document.createElement(itemName);
 		textNode.innerHTML = itemName;
 		node.appendChild(textNode);
+		node.setAttribute("id", itemName);
 		list.appendChild(node);
 	},
 
 	drop : function(itemName){
-		for(i in items){
-			if(items[i] === itemName)
-				items.splce(i,1);
+		for(i in this.items){
+			if(this.items[i] === itemName)
+				this.items.splice(i,1);
+				document.getElementById(itemName).remove();
 		}
-		return player.items;
-	}
+		return this.items;
+	},
 
 	//ASK KAI
 	/*go : function(location){
