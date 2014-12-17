@@ -1,4 +1,6 @@
 var locationList = [];
+var locCounter = 0;
+var currentLocation = locationList[locCounter];
 
 var connectionList = [
     [0,0,0,0,0,0,0,0],
@@ -17,11 +19,14 @@ function location(name, description){
 	this.name = name;
 	this.description = description;
 	this.items = [];
+	this.actions = [];
+	
+	this.pickUp = function()
 }
 
 //adds locations to the location matrix
 locationList = [
-	new location("Dark Room", "dark"),
+	new location("Dark Room", "You awaken to find yourself lying on the floor of a dark room. There is a crowbar lying next to you."),
 	new location("Frat House", "still dark"),
 	new location("Groundhog Hole", "even darker"),
 	new location("Groundhog HQ", "full of groundhogs"),
@@ -52,6 +57,10 @@ map.connect("River", "Football Field");
 map.connect("Football Field", "President's Office");
 map.connect("President's Office", "O'Reilly's Airship");
 
+//displays current location
+var displayLocation = function(){
+	//in progress
+}
 
 //tests the adjacency function
 var test = function(){

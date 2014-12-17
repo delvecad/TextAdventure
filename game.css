@@ -35,13 +35,19 @@ aside#inventory {
     right: 0;
 }
 
+aside#location {
+	left: 0;
+}
+
 main {
+	background-color: black;
     width: 60%;
     left: 20%;
     text-align: center;
 }
 
 output {
+	background-color: gray;
     display: block;
     margin: auto;
     height: 50%;

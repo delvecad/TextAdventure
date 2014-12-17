@@ -2,9 +2,8 @@ function Item(name, numUses, power) {
     this.name = name;
     this.uses = numUses;
     this.power = power;
+    this.location = "";
 }
-
-// You might want to have some functions for your items... here are just a few suggestions.
 
 Item.prototype.use = function() {
     this.uses--;
@@ -18,7 +17,8 @@ Item.prototype.usable = function() {
 var sword = new Item("sword", 999, 10);
 
 //starting weapons
-var crowbar = new Item("crowbar", 999, 2);
+var crowbar = new Item("crowbar", 1, 2);
+crowbar.location = "Dark Room";
 
 //miscellaneous items
 var cup = new Item("cup", 999, 2);

@@ -23,15 +23,24 @@ var player = {
 				document.getElementById(itemName).remove();
 		}
 	},
-
-	//ASK KAI
-	/*go : function(location){
-		for(i in locationList){
-			if(locationList[i] === location){
-				if()
-			}
+	
+	use : function(itemName){
+		//if you are in the room where you can use item
+		if(currentLocation === itemName.location){
+			itemName.use;
+			if(itemName.uses === 0)
+				player.drop(itemName);
 		}
-	}*/
+		else{
+			//"sorry, you cannot use that item"
+			}
+	},
+	
+	//MAKE CONDITION AND LINK TO LOCATIONS2.JS
+	progress : function(){
+		locCounter++;
+		console.log(currentLocation.name);
+	},
 }
 
 //parse commands	
@@ -56,6 +65,10 @@ var gameStep = function(str) {
 	var cmd = interpret(str);
 	execute(cmd);		
 };
+
+var updateLog = function(){
+	
+}
 
 // game initialization - this also sets up input box
 var gameStart = function() {
