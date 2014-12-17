@@ -1,6 +1,5 @@
-
 html {
-    font-family: Georgia, serif;
+    font-family: cursive;
     text-align: center;
 }
 
@@ -8,7 +7,6 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
-    color: black;
 }
 
 header, main, footer, aside {
@@ -48,7 +46,7 @@ output {
     margin: auto;
     height: 50%;
     padding: 5%;
-    border: 3px groove red;
+    border: 3px groove gray;
     border-radius: 1em;
 }
 
@@ -66,4 +64,3 @@ main > section {
 footer {
     top: 90%;
 }
-

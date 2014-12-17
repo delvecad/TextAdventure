@@ -1,11 +1,16 @@
 var player = {
 	items : [],
 	currentLocation : "",
+	health : 30,
 
 
 	pickup : function(itemName){
 		player.items.push(itemName),
-		return player.items
+		list = document.querySelector("#inventoryList"),
+		node = document.createElement("li"),
+		textNode = document.createElement(itemName),
+		node.appendChild(textNode),
+		list.appendChild(node)	
 	},
 
 	drop : function(itemName){
@@ -17,21 +22,18 @@ var player = {
 	}
 
 	//ASK KAI
-	go : function(location){
+	/*go : function(location){
 		for(i in locationList){
 			if(locationList[i] === location){
 				if()
 			}
 		}
-	}
-
-	
-
-
+	}*/
 }
 
-function interpret(input) {
-    var cmd = {}, tokens = input.trim().toLowerCase().split(" ");
+var interpret = function(input) {
+    var cmd = {};
+    var tokens = input.trim().toLowerCase().split(" ");
     cmd.action = tokens.shift();
     cmd.target = tokens.join(" ");
     return cmd;
@@ -74,41 +76,12 @@ function displayInventory() {
 }
 
 
-var gameStart = function(){
+	var gameStart = function(){
 	var inputBox = document.querySelector("input");
 	inputBox.addEventListener("keyup", gameStep);
-};
+		if(event.keyCode === 13){
+			gameStep();
+	};	
+}
 
 window.onload = gameStart;
-
-
-
-
-
-
-/*var runSomeTests = function(){
-
-	var descrip = document.getElementById('descrip');
-
-	console.log(descrip.tagName);
-	console.log(descrip.innerHTML);
-	console.log(descrip.parentNode.tagName);
-
-	var headings document.querySelectorAll('aside > h1');
-
-	for(i = 0; i < hea ⇐  v dings.length; i++){
-		console.log(headings[i].innerHTML);
-	}
-
-	//ADD CODE TO EXPERIMENT WITH DOM
-	var listOfItems = document.querySelector('#inventory > ul');
-	var listOfHelp = document.querySelector('#help > ul');
-
-	var listAside = document.querySelector("Aside");
-
-
-};
-
-window.onload = runSomeTests;
-	
-*/
