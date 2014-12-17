@@ -3,7 +3,7 @@ var player = {
 	currentLocation : "",
 	health : 30,
 
-
+	//looking good, but make it so it can read multi-word inputs
 	pickup : function(itemName){
 		player.items.push(itemName);
 		list = document.querySelector("#inventoryList");
@@ -14,14 +14,14 @@ var player = {
 		node.setAttribute("id", itemName);
 		list.appendChild(node);
 	},
-
+	
+	//same as above
 	drop : function(itemName){
 		for(i in this.items){
 			if(this.items[i] === itemName)
 				this.items.splice(i,1);
 				document.getElementById(itemName).remove();
 		}
-		return this.items;
 	},
 
 	//ASK KAI
