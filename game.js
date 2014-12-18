@@ -35,7 +35,7 @@ var player = {
 	
 	use : function(itemName){
 		//if you are in the room where you can use item
-		if(itemName === player.currentLocation.item){
+		if(itemName === currLocation.item){
 			itemName.use;
 			if(itemName.uses === 0)
 				player.drop(itemName);
@@ -44,14 +44,14 @@ var player = {
 		}
 		else{
 				console.log(itemName);
-				console.log(player.currentLocation.item);
+				console.log(currLocation.item);
 				descrip = document.getElementById("#descrip");
 				updateLog("sorry, You can't use that right now.");
 			}
 	},
 	
 	walkto : function(locName){
-		if(locName === player.currentLocation.walkableArea)
+		if(locName === currLocation.walkableArea)
 			player.progress;
 		else
 			updateLog("Can't go there. Check spelling or try a different location.");
@@ -59,12 +59,12 @@ var player = {
 	
 	displayLocation : function(){
 		area = document.querySelector("#currLoc");
-		area.innerHTML = player.currentLocation.name;
+		area.innerHTML = player.currentLocation;
 	},
 	
 	//MAKE CONDITION
 	progress : function(){
-		locationList[x++];
+		currLocation = locationList[x++];
 		console.log(currLocation.name);
 		console.log(currLocation.description);
 		updateLog(currLocation.description);
