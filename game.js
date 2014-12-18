@@ -9,6 +9,7 @@ var player = {
 	//looking good, but make it so it can read multi-word inputs
 	pickup : function(itemName){
 		if(itemName === currLocation.item){
+			currLocation.itemObtained = true;
 			player.items.push(itemName);
 			list = document.querySelector("#inventoryList");
 			node = document.createElement("li");
@@ -35,9 +36,12 @@ var player = {
 	
 	use : function(itemName){
 		if(itemName === currLocation.usableItem){
-			updateLog(currLocation.description);
-			//if(itemName.uses === 0)
-				//player.drop(itemName);
+			if(currLocation.itemObtained === true){
+				if(itemName === "shovel" || itemName === "sword" || itemName === "shield" || itemName === "helmet" || itemName === "jetpack"){
+					currLocation = locationList[x++];
+					updateLog(currLocation.description);
+				}
+			}
 		}
 		else
 			 updateLog("sorry, You can't use that right now.");

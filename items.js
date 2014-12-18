@@ -1,6 +1,7 @@
 function Item(name, numUses, power) {
     this.name = name;
     this.uses = numUses;
+    this.used = false;
     this.power = power;
     this.location = "";
 }

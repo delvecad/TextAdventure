@@ -17,7 +17,7 @@ function Location(name, description, item, walkableArea, usableItem){
 	this.description = description;
 	this.item = item;
 	this.walkableArea = walkableArea;
-	this.actions = [];
+	this.ItemObtained = false;
 	this.usableItem = usableItem;
 	}
 
@@ -27,10 +27,10 @@ var locationList = [
 	new Location("Dark Room", "You awaken to find yourself lying on the floor of a dark room. There is a large piece of paper lying next to you. There is an open door on the other side of the room.", paper.name, "door"),
 	new Location("Field", "The moonlight nearly blinds you. There is a shovel a few paces ahead of you and a hole that you could widen enough to fit through.", shovel.name, "hole", shovel.name),
 	new Location("Groundhog Hole", "Looks like you found a hive of groundhogs. There's a light at the end of the tunnel though. Maybe try walking toward it.", " ", "light"),
-	new Location("Groundhog HQ", "Looks like you found Groundhog HQ. There are groundhogs everywhere. But how do you get out? There's nothing here for you but...that sword on the ground! Why is it here? Who cares. Grab it!", sword.name, " ", " "),
+	new Location("Groundhog HQ", "Looks like you found Groundhog HQ. There are groundhogs everywhere. But how do you get out? There's nothing here for you but...that sword on the ground! Why is it here? Who cares. Grab it and give it a swing!", sword.name, "portal", sword.name),
 	new Location("River", "Touching the sword teleported you to the banks of the Hudson just off of campus. Weird/convenient, right? It's almost like the guy who made this was running seriously low on time. Theres a shield a few feet away from you. See where that teleports you.", shield.name, " ", shield.name),
 	new Location("Football Field", "Cool, that worked again. Now it looks like you're at the football field. Yikes, now you'll HAVE to lose the game. Go pick up that football helmet that was left out. It'll probably do the same thing as usual.", helmet.name, " ", helmet.name),
-	new Location("President's Office", "Now you're getting the hang of it! And it looks like I'm *cough* getting the hang of javascript. Looks like you're in the President Murray's office. Nice Security. Grab his jetpack and get out of there.", jetpack.name, " ",jetpack.name),
+	new Location("President's Office", "Now you're getting the hang of it! And it looks like I'm *cough* getting the hang of javascript. Looks like you're in President Murray's office. Nice Security. Grab his jetpack and get out of there.", jetpack.name, " ",jetpack.name),
 	new Location("O'Reilly's Airship", "That jetpack shot you right up to Bill O'Reilly's airship! Fun fact: Marist's favorite son films every episode of his show from a mile above campus. Maybe you can fix that. Try using the sword on the guy.", " ", " ", sword.name),
 	new Location("O'Reilly's Arena", "Looks like he shattered your blade with his conservative agenda. He then transforms into a robot. His name is Robo'reilly. Try using that piece of paper you found earlier. It's all you've got left.", " ", " ", paper.name),
 	new Location("Victory", "Looks like you defeated O'Reilly with the constitution which was the paper you found. Convenient as hell. You win!")
