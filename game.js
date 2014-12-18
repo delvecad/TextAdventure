@@ -1,8 +1,8 @@
 var x = 0;
-var currentLocation = locationList[x];
+
 var player = {
 	items : [],
-	currentLocation : locationList[x].name,
+	currentLocation : locationList[x],
 	health : 30,
 
 	//looking good, but make it so it can read multi-word inputs
