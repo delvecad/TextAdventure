@@ -8,7 +8,7 @@ var player = {
 
 	//looking good, but make it so it can read multi-word inputs
 	pickup : function(itemName){
-		if(itemName === player.currentLocation.item){
+		if(itemName === currLocation.item){
 			player.items.push(itemName);
 			list = document.querySelector("#inventoryList");
 			node = document.createElement("li");
@@ -34,20 +34,13 @@ var player = {
 	},
 	
 	use : function(itemName){
-		//if you are in the room where you can use item
 		if(itemName === currLocation.item){
-			itemName.use;
-			if(itemName.uses === 0)
-				player.drop(itemName);
-				player.progress;
-				
+			player.progress;
+			//if(itemName.uses === 0)
+				//player.drop(itemName);
 		}
-		else{
-				console.log(itemName);
-				console.log(currLocation.item);
-				descrip = document.getElementById("#descrip");
-				updateLog("sorry, You can't use that right now.");
-			}
+		else
+			updateLog("sorry, You can't use that right now.");
 	},
 	
 	walkto : function(locName){
@@ -64,14 +57,18 @@ var player = {
 	
 	//MAKE CONDITION
 	progress : function(){
-		currLocation = locationList[x++];
-		console.log(currLocation.name);
-		console.log(currLocation.description);
-		updateLog(currLocation.description);
+		if(x<=9){
+				currLocation = locationList[x++];
+				console.log(currLocation.name);
+				console.log(currLocation.description);
+				updateLog(currLocation.description);
+		}
+		else
+			updateLog("YOU WIN");
 	},
 	
 	info : function(){
-		updateLog(player.currentLocation.description);
+		updateLog(currLocation.description);
 	},
 }
 
