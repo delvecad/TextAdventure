@@ -1,7 +1,3 @@
-var locationList = [];
-var locCounter = 0;
-var currentLocation = locationList[locCounter];
-
 var connectionList = [
     [0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0],
@@ -20,8 +16,6 @@ function location(name, description){
 	this.description = description;
 	this.items = [];
 	this.actions = [];
-	
-	this.pickUp = function()
 }
 
 //adds locations to the location matrix
@@ -35,6 +29,9 @@ locationList = [
 	new location("President's Office", "presidential"),
 	new location("O'Reilly's Airship", "spooky")	
 ];
+
+var locCounter = 0;
+var currentLocation = locationList[locCounter];
 
 //map object that stores the arrays
 var map = {
@@ -59,7 +56,8 @@ map.connect("President's Office", "O'Reilly's Airship");
 
 //displays current location
 var displayLocation = function(){
-	//in progress
+	var area = document.getElementId("#currLoc");
+	area.innerHTML = currentLocation.name;
 }
 
 //tests the adjacency function

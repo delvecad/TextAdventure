@@ -32,7 +32,8 @@ var player = {
 				player.drop(itemName);
 		}
 		else{
-			//"sorry, you cannot use that item"
+				var descrip = document.getElementById("#descrip");
+				descrip.value = "sorry, You can't use that right now.";
 			}
 	},
 	
@@ -78,6 +79,7 @@ var gameStart = function() {
 		if(event.keyCode === 13) {
 			gameStep(this.value);
 			inputBox.value="";
+			displayLocation();
 			//updates
 			//
 			//player.inventory(); 
