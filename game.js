@@ -34,18 +34,20 @@ var player = {
 	},
 	
 	use : function(itemName){
-		if(itemName === currLocation.item){
-			player.progress;
+		if(itemName === currLocation.usableItem){
+			updateLog(currLocation.description);
 			//if(itemName.uses === 0)
 				//player.drop(itemName);
 		}
 		else
-			updateLog("sorry, You can't use that right now.");
+			 updateLog("sorry, You can't use that right now.");
 	},
 	
 	walkto : function(locName){
-		if(locName === currLocation.walkableArea)
-			player.progress;
+		if(locName === currLocation.walkableArea){
+			currLocation = locationList[x++];
+			updateLog(currLocation.description);
+		}
 		else
 			updateLog("Can't go there. Check spelling or try a different location.");
 	},
@@ -59,12 +61,10 @@ var player = {
 	progress : function(){
 		if(x<=9){
 				currLocation = locationList[x++];
-				console.log(currLocation.name);
-				console.log(currLocation.description);
 				updateLog(currLocation.description);
 		}
 		else
-			updateLog("YOU WIN");
+			updateLog("YOU WIN! Refresh the page to restart.");
 	},
 	
 	info : function(){
