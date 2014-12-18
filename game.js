@@ -1,15 +1,15 @@
 var x = 0;
+var currLocation = locationList[x];
 
 var player = {
 	items : [],
-	currentLocation : locationList[x],
+	currentLocation : currLocation.name,
 	health : 30,
 
 	//looking good, but make it so it can read multi-word inputs
 	pickup : function(itemName){
 		if(itemName === player.currentLocation.item){
 			player.items.push(itemName);
-			player.currentLocation.item = "";
 			list = document.querySelector("#inventoryList");
 			node = document.createElement("li");
 			textNode = document.createElement(itemName);
@@ -21,7 +21,6 @@ var player = {
 		}
 		else
 			updateLog("There is no such item here");
-			console.log(player.currentLocation.item);
 	},
 	
 	//same as above
@@ -36,19 +35,22 @@ var player = {
 	
 	use : function(itemName){
 		//if you are in the room where you can use item
-		if(currentLocation === itemName.location){
+		if(itemName === player.currentLocation.item){
 			itemName.use;
 			if(itemName.uses === 0)
 				player.drop(itemName);
-				updateLog("" + itemName + " has been exhausted. It has been dropped.");
+				player.progress;
+				
 		}
 		else{
+				console.log(itemName);
+				console.log(player.currentLocation.item);
 				descrip = document.getElementById("#descrip");
-				descrip.value = "sorry, You can't use that right now.";
+				updateLog("sorry, You can't use that right now.");
 			}
 	},
 	
-	walkTo : function(locName){
+	walkto : function(locName){
 		if(locName === player.currentLocation.walkableArea)
 			player.progress;
 		else
@@ -62,10 +64,10 @@ var player = {
 	
 	//MAKE CONDITION
 	progress : function(){
-		x++;
-		console.log(player.currentLocation.name);
-		updateLog(player.currentLocation.description);
-		console.log(x);
+		locationList[x++];
+		console.log(currLocation.name);
+		console.log(currLocation.description);
+		updateLog(currLocation.description);
 	},
 	
 	info : function(){

@@ -19,7 +19,10 @@ function Location(name, description, item, walkableArea){
 	this.walkableArea = walkableArea;
 	this.actions = [];
 }
-
+var testMatrix = [];
+	testMatrix[0] = "poop";
+	testMatrix[1] = "more poop"
+	
 //adds locations to the location matrix
 var locationList = [
 	new Location("Dark Room", "You awaken to find yourself lying on the floor of a dark room. There is a large piece of paper lying next to you.", paper.name, "door"),
@@ -31,8 +34,8 @@ var locationList = [
 	new Location("President's Office", "Now you're getting the hang of it! And it looks like I'm *cough* getting the hang of javascript. Looks like you're in the President Murray's office. Nice Security. Grab his jetpack and get out of there.", jetpack.name, " "),
 	new Location("O'Reilly's Airship", "That jetpack shot you right up to Bill O'Reilly's airship! Fun fact: Marist's favorite son films every episode of his show from a mile above campus. Maybe you can fix that. Try using the sword on the guy."),
 	new Location("O'Reilly's Arena", "Looks like he shattered your blade with his conservative agenda. He then transforms into a robot. His name is Robo'reilly. Try using that piece of paper you found earlier. It's all you've got left.", paper.name, " "),
+	new Location("Victory", "Looks like you defeated O'Reilly with the constitution which was the paper you found. Convenient as hell. You win!")
 ];
-
 
 //map object that stores the arrays
 var map = {
