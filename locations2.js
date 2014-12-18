@@ -10,7 +10,6 @@ var connectionList = [
 	
 ];
 
-var locCounter = 0;
 
 //location constructor
 function Location(name, description, item, walkableArea){
@@ -32,10 +31,6 @@ var locationList = [
 	new Location("President's Office", "Now you're getting the hang of it! And it looks like I'm *cough* getting the hang of javascript. Looks like you're in the President Murray's office. Nice Security. Grab his jetpack and get out of there.", jetpack.name, " "),
 	new Location("O'Reilly's Airship", "That jetpack shot you right up to Bill O'Reilly's airship! Fun fact: Marist's favorite son films every episode of his show from a mile above campus. Maybe you can fix that. Try using the sword on the guy."),
 	new Location("O'Reilly's Arena", "Looks like he shattered your blade with his conservative agenda. He then transforms into a robot. His name is Robo'reilly. Try using that piece of paper you found earlier. It's all you've got left.", paper.name, " "),
-];
-
-var itemList = [
-	"crowbar"
 ];
 
 

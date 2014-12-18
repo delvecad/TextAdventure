@@ -1,6 +1,8 @@
+var x = 0;
+var currentLocation = locationList[x];
 var player = {
 	items : [],
-	currentLocation : locationList[2],
+	currentLocation : locationList[x].name,
 	health : 30,
 
 	//looking good, but make it so it can read multi-word inputs
@@ -19,7 +21,6 @@ var player = {
 		}
 		else
 			updateLog("There is no such item here");
-			console.log(itemName);
 			console.log(player.currentLocation.item);
 	},
 	
@@ -61,9 +62,10 @@ var player = {
 	
 	//MAKE CONDITION
 	progress : function(){
-		player.counter++;
+		x++;
 		console.log(player.currentLocation.name);
 		updateLog(player.currentLocation.description);
+		console.log(x);
 	},
 	
 	info : function(){
