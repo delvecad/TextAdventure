@@ -15,15 +15,24 @@ Item.prototype.usable = function() {
 
 //strong weaons
 var sword = new Item("sword", 999, 10);
+sword.location = "Groundhog HQ";
 
 //starting weapons
-var crowbar = new Item("crowbar", 1, 2);
-crowbar.location = "Dark Room";
+var paper = new Item("paper", 1, 2);
+paper.location = "Dark Room";
+
+var shovel = new Item("shovel", 1, 2);
+shovel.location = "Field";
 
 //miscellaneous items
-var cup = new Item("cup", 999, 2);
-var groundhogFood = new Item("groundhog food", 3, 5);
+var shield = new Item("shield", 999, 0);
+shield.location = "River";
+
+var helmet = new Item("helmet", 999, 0);
+helmet.location = "Football Field";
+
+var jetpack = new Item("jetpack", 999, 0);
+jetpack.location = "President's Office";
 
 //healing items
 var potion = new Item("potion", 1, 10);
-var maxPotion = new Item("max potion", 1, 30 - player.health);

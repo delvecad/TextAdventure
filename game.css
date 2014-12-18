@@ -35,8 +35,10 @@ aside#inventory {
     right: 0;
 }
 
-aside#location {
+aside#locationBar {
+	top: 50%;
 	left: 0;
+	text-align: center;
 }
 
 main {

@@ -1,18 +1,26 @@
 var player = {
 	items : [],
-	currentLocation : "",
+	currentLocation : locationList[2],
 	health : 30,
 
 	//looking good, but make it so it can read multi-word inputs
 	pickup : function(itemName){
-		player.items.push(itemName);
-		list = document.querySelector("#inventoryList");
-		node = document.createElement("li");
-		textNode = document.createElement(itemName);
-		textNode.innerHTML = itemName;
-		node.appendChild(textNode);
-		node.setAttribute("id", itemName);
-		list.appendChild(node);
+		if(itemName === player.currentLocation.item){
+			player.items.push(itemName);
+			player.currentLocation.item = "";
+			list = document.querySelector("#inventoryList");
+			node = document.createElement("li");
+			textNode = document.createElement(itemName);
+			textNode.innerHTML = itemName;
+			node.appendChild(textNode);
+			node.setAttribute("id", itemName);
+			list.appendChild(node);
+			updateLog("you picked up " + itemName);
+		}
+		else
+			updateLog("There is no such item here");
+			console.log(itemName);
+			console.log(player.currentLocation.item);
 	},
 	
 	//same as above
@@ -21,6 +29,7 @@ var player = {
 			if(this.items[i] === itemName)
 				this.items.splice(i,1);
 				document.getElementById(itemName).remove();
+				updateLog("You dropped " + itemName);
 		}
 	},
 	
@@ -30,17 +39,35 @@ var player = {
 			itemName.use;
 			if(itemName.uses === 0)
 				player.drop(itemName);
+				updateLog("" + itemName + " has been exhausted. It has been dropped.");
 		}
 		else{
-				var descrip = document.getElementById("#descrip");
+				descrip = document.getElementById("#descrip");
 				descrip.value = "sorry, You can't use that right now.";
 			}
 	},
 	
-	//MAKE CONDITION AND LINK TO LOCATIONS2.JS
+	walkTo : function(locName){
+		if(locName === player.currentLocation.walkableArea)
+			player.progress;
+		else
+			updateLog("Can't go there. Check spelling or try a different location.");
+	},
+	
+	displayLocation : function(){
+		area = document.querySelector("#currLoc");
+		area.innerHTML = player.currentLocation.name;
+	},
+	
+	//MAKE CONDITION
 	progress : function(){
-		locCounter++;
-		console.log(currentLocation.name);
+		player.counter++;
+		console.log(player.currentLocation.name);
+		updateLog(player.currentLocation.description);
+	},
+	
+	info : function(){
+		updateLog(player.currentLocation.description);
 	},
 }
 
@@ -56,7 +83,7 @@ var interpret = function(str) {
 	return emptyObj;
 };
 
-var execute = function (command) {
+var execute = function(command) {
 	var action = command.action;
 	var object = command.object;
 	player[action](object);
@@ -67,19 +94,20 @@ var gameStep = function(str) {
 	execute(cmd);		
 };
 
-var updateLog = function(){
-	
+var updateLog = function(msg){
+	document.querySelector("#descrip").value = msg;
 }
+
 
 // game initialization - this also sets up input box
 var gameStart = function() {
-
+	player.displayLocation();
 	var inputBox = document.querySelector("input");
 	inputBox.addEventListener("keyup", function(event){
 		if(event.keyCode === 13) {
 			gameStep(this.value);
 			inputBox.value="";
-			displayLocation();
+			player.displayLocation();
 			//updates
 			//
 			//player.inventory(); 
