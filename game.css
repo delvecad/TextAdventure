@@ -41,6 +41,12 @@ aside#locationBar {
 	text-align: center;
 }
 
+aside#nameArea {
+	top: 50%;
+	right: 0;
+	text-align: center;
+}
+
 main {
 	background-color: black;
     width: 60%;

@@ -1,11 +1,14 @@
 var x = 0;
 var currLocation = locationList[x];
+var stepCount = 0;
 
+//player object
 var player = {
+	name : "",
 	items : [],
 	currentLocation : currLocation.name,
 
-	//looking good, but make it so it can read multi-word inputs
+	//picks up the item available in the location, if there is one
 	pickup : function(itemName){
 		if(itemName === currLocation.item){
 			currLocation.itemObtained = true;
@@ -23,7 +26,7 @@ var player = {
 			updateLog("There is no such item here");
 	},
 	
-	//same as above
+	//drops the item
 	drop : function(itemName){
 		for(i in this.items){
 			if(this.items[i] === itemName)
@@ -33,6 +36,7 @@ var player = {
 		}
 	},
 	
+	//makes the player use the item
 	use : function(itemName){
 		if(itemName === currLocation.usableItem){
 			if(currLocation.itemObtained === true){
@@ -46,6 +50,7 @@ var player = {
 			 updateLog("sorry, You can't use that right now.");
 	},
 	
+	//moves the player to a destination
 	walkto : function(locName){
 		if(locName === currLocation.walkableArea){
 			currLocation = locationList[x++];
@@ -55,12 +60,13 @@ var player = {
 			updateLog("Can't go there. Check spelling or try a different location.");
 	},
 	
+	//displays the player's location on the side of the screen
 	displayLocation : function(){
 		area = document.querySelector("#currLoc");
 		area.innerHTML = player.currentLocation;
 	},
 	
-	//MAKE CONDITION
+	//moves the player to the next location
 	progress : function(){
 		if(x<=9){
 				currLocation = locationList[x++];
@@ -70,9 +76,19 @@ var player = {
 			updateLog("YOU WIN! Refresh the page to restart.");
 	},
 	
+	//the help function. It brings you back to the screen with all of the area's information
 	info : function(){
 		updateLog(currLocation.description);
 	},
+	
+	//sets the player's name
+	mynameis : function(name){
+		this.name = name;
+		document.querySelector("#playername").innerHTML = name;
+		locationList[x++];
+		updateLog(this.name + ", " + currLocation.description);
+	}
+		
 }
 
 //parse commands	
@@ -87,6 +103,7 @@ var interpret = function(str) {
 	return emptyObj;
 };
 
+//executes the command
 var execute = function(command) {
 	var action = command.action;
 	var object = command.object;
@@ -98,6 +115,7 @@ var gameStep = function(str) {
 	execute(cmd);		
 };
 
+//updates the text box
 var updateLog = function(msg){
 	document.querySelector("#descrip").value = msg;
 }
@@ -112,21 +130,9 @@ var gameStart = function() {
 			gameStep(this.value);
 			inputBox.value="";
 			player.displayLocation();
-			//updates
-			//
-			//player.inventory(); 
-			//player.avaliableActions(player.currentLocation); 
-			//playerLocation(player.currentLocation.name);
 		}	
 	});	
-};
-
-var gameVictory = function(){
-	//alert player, stop default action
-};
-
-var gameDefeat = function(){
-	//alert player, reset game
+	stepCount++;
 };
 
 window.onload = gameStart;

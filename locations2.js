@@ -24,7 +24,7 @@ function Location(name, description, item, walkableArea, usableItem){
 	
 //adds locations to the location matrix
 var locationList = [
-	new Location("Dark Room", "You awaken to find yourself lying on the floor of a dark room. There is a large piece of paper lying next to you. There is an open door on the other side of the room.", paper.name, "door"),
+	new Location("Dark Room", "you awaken to find yourself lying on the floor of a dark room. There is a large piece of paper lying next to you. There is an open door on the other side of the room.", paper.name, "door"),
 	new Location("Field", "The moonlight nearly blinds you. There is a shovel a few paces ahead of you and a hole that you could widen enough to fit through.", shovel.name, "hole", shovel.name),
 	new Location("Groundhog Hole", "Looks like you found a hive of groundhogs. There's a light at the end of the tunnel though. Maybe try walking toward it.", " ", "light"),
 	new Location("Groundhog HQ", "Looks like you found Groundhog HQ. There are groundhogs everywhere. But how do you get out? There's nothing here for you but...that sword on the ground! Why is it here? Who cares. Grab it and give it a swing!", sword.name, "portal", sword.name),

@@ -17,6 +17,7 @@ Item.prototype.usable = function() {
 //strong weaons
 var sword = new Item("sword", 999, 10);
 
+//a function just in case the program doesn't handle the sword object correctly. Works for now
 var updateSword = function(){
 	if(currLocation.name === "Groundhog HQ")
 		sword.location = "Groundhog HQ";
@@ -28,13 +29,13 @@ var updateSword = function(){
 var paper = new Item("paper", 1, 2);
 paper.location = "Dark Room";
 
+//same purpose as updateSword()
 var updatePaper = function(){
 	if(currLocation.name === "O'Reilly's Arena")
 		sword.location = "O'Reilly's Arena";
 	else
 		sword.location = "Dark Room";
 };
-
 
 var shovel = new Item("shovel", 1, 2);
 shovel.location = "Field";
