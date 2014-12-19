@@ -31,9 +31,9 @@ var locationList = [
 	new Location("River", "Touching the sword teleported you to the banks of the Hudson just off of campus. Weird/convenient, right? It's almost like the guy who made this was running seriously low on time. Theres a shield a few feet away from you. See where that teleports you.", shield.name, " ", shield.name),
 	new Location("Football Field", "Cool, that worked again. Now it looks like you're at the football field. Yikes, now you'll HAVE to lose the game. Go pick up that football helmet that was left out. It'll probably do the same thing as usual.", helmet.name, " ", helmet.name),
 	new Location("President's Office", "Now you're getting the hang of it! And it looks like I'm *cough* getting the hang of javascript. Looks like you're in President Murray's office. Nice Security. Grab his jetpack and get out of there.", jetpack.name, " ",jetpack.name),
-	new Location("O'Reilly's Airship", "That jetpack shot you right up to Bill O'Reilly's airship! Fun fact: Marist's favorite son films every episode of his show from a mile above campus. Maybe you can fix that. Try using the sword on the guy.", " ", " ", sword.name),
-	new Location("O'Reilly's Arena", "Looks like he shattered your blade with his conservative agenda. He then transforms into a robot. His name is Robo'reilly. Try using that piece of paper you found earlier. It's all you've got left.", " ", " ", paper.name),
-	new Location("Victory", "Looks like you defeated O'Reilly with the constitution which was the paper you found. Convenient as hell. You win!")
+	new Location("O'Reilly's Airship", "That jetpack shot you right up to Bill O'Reilly's airship! Fun fact: Marist's favorite son films every episode of his show from a mile above campus. Maybe your sword could fix that. Your sword, however, hit the ground when you crashed through the window. Try using the sword on the guy.", sword.name, " ", sword.name),
+	new Location("O'Reilly's Arena", "Looks like he shattered your blade with his conservative agenda. He then transforms into a robot. His name is Robo'reilly. Try using that piece of paper you found earlier. It also dropped when you landed. It's all you've got left.", paper.name, " ", paper.name),
+	new Location("Victory", "Looks like you defeated O'Reilly with the Constitution which was the paper you found. Convenient as hell. You win! Refresh the page to start over (if you're a masochist)")
 ];
 
 //map object that stores the arrays
@@ -73,22 +73,3 @@ var test = function(){
 	}
 
 }
-
-
-/*
-//call the connectionList matrix and connect room i to room j
-function connect(matrix, i, j){
-	matrix[i][j] = 1;
-	matrix[j][i] = 1;
-}
-
-//call the connectionList matrix aonnect room i to room j
-function disconnect(matrix, i, j){
-	matrix[i][j] = 0;
-	matrix[j][i] = 0;
-}
-*/
-
-
-//runs the test function
-test();

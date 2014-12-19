@@ -4,7 +4,6 @@ var currLocation = locationList[x];
 var player = {
 	items : [],
 	currentLocation : currLocation.name,
-	health : 30,
 
 	//looking good, but make it so it can read multi-word inputs
 	pickup : function(itemName){
@@ -37,7 +36,7 @@ var player = {
 	use : function(itemName){
 		if(itemName === currLocation.usableItem){
 			if(currLocation.itemObtained === true){
-				if(itemName === "shovel" || itemName === "sword" || itemName === "shield" || itemName === "helmet" || itemName === "jetpack"){
+				if(itemName === "shovel" || itemName === "sword" || itemName === "shield" || itemName === "helmet" || itemName === "jetpack" || itemName === "paper"){
 					currLocation = locationList[x++];
 					updateLog(currLocation.description);
 				}
